@@ -16,7 +16,13 @@ import java.util.List;
 public class Professor {
 	public String professorID;
 	String password;
-	
+	public Professor(){}
+	public Professor(String string, String string2) {
+		// TODO Auto-generated constructor stub
+		professorID=string;
+		password=string2;
+	}
+
 	public List<Course> viewProfCourses(){
 		return null;
 	}

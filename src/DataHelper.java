@@ -1,3 +1,8 @@
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 //
@@ -15,10 +20,75 @@ import java.util.List;
 
 
 
+/**
+ * @author NIKHILA
+ *
+ */
 public class DataHelper {
-	int a = 123;
+	
+	/**
+	 * @nikhila
+	 */
+	List<Course> list_Course=new ArrayList<Course>(10);
+	List<Professor> list_Professor=new ArrayList<Professor>(4);
+	List<Student> list_Student=new ArrayList<Student>(10);
+	List<String> list_Qstnpaper=new ArrayList<String>(4);
+	/**
+	 * @ nikhila
+	 */
+	public void load_Course()
+	{
+		list_Course.add(new Course("DATA STRUCTURES","BCS101","ABC",4,7,4,"1.what is a data structure?2.what is heap?"));
+		list_Course.add(new Course("ALGORITHMS","BCS102","DEF",4,7,4,"1.what is an algorithm 2. explain quick sort"));
+		list_Course.add(new Course("OPERATING SYSTEMS","BCS103","GHI",4,7,4,"1.what are the types of os?2.explain threads?"));
+		list_Course.add(new Course("COMPUTER NETWORKS","BCS104","JKL",4,7,4,"1.what is a packet2.explain osi model"));
+	}
+	/**
+	 * @nikhila
+	 */
+	public void load_Professor()
+	{
+		list_Professor.add(new Professor("PROF1","SIS123"));
+		list_Professor.add(new Professor("PROF2","SIS123"));
+		list_Professor.add(new Professor("PROF3","SIS123"));
+		list_Professor.add(new Professor("PROF4","SIS123"));
+	}
+	/**
+	 * @throws ParseException 
+	 * @nikhila
+	 */
+	public void load_Student() throws ParseException
+	{
+		String testDate = "29-Apr-1990";
+		DateFormat formatter = new SimpleDateFormat("d-MMM-yyyy");
+		Student s0 = new Student();
+		s0.address="address1";s0.bloodGroup="bg1";s0.branch="CSE";s0.year=2013;s0.currentYear=1;
+		s0.dob=(Date) formatter.parse(testDate);s0.eduBackground="SSC";s0.firstName="A1";
+		s0.lastName="A2";s0.isRegistered=true;s0.phoneNumber=123456;s0.studentID="ST01";s0.password="SIS123";
+		
+		Student s1 = new Student();
+		s1.address="address1";s1.bloodGroup="bg1";s1.branch="CSE";s1.year=2013;s1.currentYear=1;
+		s1.dob=(Date) formatter.parse(testDate);s1.eduBackground="SSC";s1.firstName="A1";
+		s1.lastName="A2";s1.isRegistered=true;s1.phoneNumber=123456;s1.studentID="ST01";s1.password="SIS123";
+		
+		Student s2 = new Student();
+		s2.address="address1";s2.bloodGroup="bg1";s2.branch="CSE";s2.year=2013;s2.currentYear=1;
+		s2.dob=(Date) formatter.parse(testDate);s2.eduBackground="SSC";s2.firstName="A1";
+		s2.lastName="A2";s2.isRegistered=true;s2.phoneNumber=123456;s2.studentID="ST01";s2.password="SIS123";
+		
+		Student s3 = new Student();
+		s3.address="address1";s3.bloodGroup="bg1";s3.branch="CSE";s3.year=2013;s3.currentYear=1;
+		s3.dob=(Date) formatter.parse(testDate);s3.eduBackground="SSC";s3.firstName="A1";
+		s3.lastName="A2";s3.isRegistered=true;s3.phoneNumber=123456;s3.studentID="ST01";s3.password="SIS123";
+
+		
+	}
+	/**
+	 * 
+	 * @nikhila
+	 */
 	public List<Course> viewAllCourse() {
-		return null;
+		return list_Course;
 	}
 	
 	public List<Student> viewAllStudentsByCourse(Course course) {
@@ -26,6 +96,16 @@ public class DataHelper {
 	}
 	
 	public String getQuestionPaper(Course course) {
+		
+		
 		return null;
 	}
+	/**
+	 * @nikhila
+	 */
+	public List<Professor> viewAllProfessor()
+	{
+		return list_Professor;
+	}
 }
+
