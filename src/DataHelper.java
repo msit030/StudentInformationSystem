@@ -15,6 +15,7 @@ import java.util.List;
 
 
 public class DataHelper {
+	int a = 123;
 	public List<Course> viewAllCourse() {
 		return null;
 	}
