@@ -26,27 +26,71 @@ public class Student {
 	public String branch;
 	public int currentYear;
 	public boolean isRegistered;
+	
+	
+	
 	public void createUpdateProfile() {
 	
 	}
 	
+	/**
+	 * 
+	 */
 	public void getProfile() {
 	
 	}
 	
+	/**
+	 * 
+	 */
 	public void viewCourses() {
 	
 	}
 	
+	/**
+	 * @param crse
+	 */
 	public void registerForCourse(Course crse) {
 	
 	}
 	
+	/**
+	 * 
+	 */
 	public void viewAttendance() {
 	
 	}
 	
+	/**
+	 * 
+	 */
 	public void viewResults() {
 	
+	}
+	
+	/**@author Omair
+	 * To string method
+	 */
+	public String toString() {
+		return ""
+				+ "Student ID:"+studentID+"\n"
+				+ "Name:"+firstName+" "+lastName+"\n"
+				+ "Phone Numbers:"+phoneNumber+"\n"
+				+ "Background:"+eduBackground+"\n"
+				+ "Branch:"+branch+"\n"
+				+ "Current Year:"+currentYear+"\n"
+				+ "Registered:"+isRegistered+"\n";
+	}
+	
+	/**
+	 * @author Omair
+	 * Checks for equality of Student with Student ID as the field
+	 */
+	public boolean equals(Object o) {
+		Student s = (Student) o;
+		if(s.studentID.equalsIgnoreCase(this.studentID))
+			return true;
+		else
+			return false;
 	}
 }
