@@ -58,4 +58,9 @@ public class Course {
 		else 
 			return false;
 	}
+	
+	public int hashCode() {
+		
+		  return courseID.hashCode();
+		}
 }

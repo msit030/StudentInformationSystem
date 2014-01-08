@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.List;
 
 //
 //
@@ -12,26 +13,86 @@ import java.util.HashMap;
 //
 
 
-
-
+/**
+ * @author Omair
+ *
+ */
 public class MarksManager {
+	DataHelper dH;
+	HashMap<Course, HashMap<Student, Integer>> studentMarksByCourse;
+	
+	MarksManager() {
+		dH = new DataHelper();
+		studentMarksByCourse = new HashMap<>();
+		HashMap<Student,Integer> studentMarks = new HashMap<>();
+		
+		for(int i = 0; i < dH.list_Course.size(); i++)
+		{
+			List<Student> l = dH.viewAllStudentsByCourse(dH.list_Course.get(i));
+			
+			for(int j = 0; j < l.size(); j++)
+				studentMarks.put(l.get(j), (int)(Math.random() * 100));
+			
+			studentMarksByCourse.put(dH.list_Course.get(i), studentMarks);
+			
+		}
+	}
+	
+	/**
+	 * Get the marks of each student
+	 * @param student
+	 * @return
+	 */
 	public HashMap<Course,Integer> getMarksByStudent(Student student) {
-		return null;
+		
+		HashMap<Course, Integer> marksByStudent = new HashMap<>();
+		
+		for(int i=0; i<dH.list_Course.size(); i++)
+		{
+			HashMap<Student,Integer> studentMarks = studentMarksByCourse.get(dH.list_Course.get(i));
+			
+			marksByStudent.put(dH.list_Course.get(i), studentMarks.get(student));
+		}
+		
+		return marksByStudent;
 	}
-	
+
+	/**
+	 * Get the marks of each course
+	 * @param course
+	 * @return
+	 */
 	public HashMap<Student,Integer> getMarksByCourse(Course course) {
-		return null;
+		
+		return studentMarksByCourse.get(course);
 	}
-	
+
+	/**
+	 * Gets the marks of all the students in each course
+	 * @return
+	 */
 	public HashMap<Course,HashMap<Student,Integer>> getMarksReport() {
-		return null;
+		
+		return studentMarksByCourse;
 	}
-	
+
+	/**
+	 * Give marks to a student
+	 * @param student
+	 * @param course
+	 * @param marks
+	 */
 	public void addMarks(Student student, Course course, int marks) {
-	
+		HashMap<Student,Integer> marksByCourse = studentMarksByCourse.get(course);
+		marksByCourse.put(student, marks);
+		studentMarksByCourse.put(course, marksByCourse);
 	}
-	
+
+	/**
+	 * Generates the Consolidated Marks Memo of the student
+	 * @param student
+	 */
 	public void generateCMM(Student student) {
-	
+		System.out.println(getMarksByStudent(student));
 	}
 }

@@ -11,7 +11,6 @@
 
 
 
-
 public class Student {
 	public String studentID;
 	String password;
@@ -82,13 +81,19 @@ public class Student {
 				+ "Registered:"+isRegistered+"\n";
 	}
 	
+	public int hashCode() {
+		
+		  return studentID.hashCode();
+		}
+	
 	/**
 	 * @author Omair
 	 * Checks for equality of Student with Student ID as the field
 	 */
+	@Override
 	public boolean equals(Object o) {
 		Student s = (Student) o;
-		if(s.studentID.equalsIgnoreCase(this.studentID))
+		if(this.studentID.equalsIgnoreCase(s.studentID))
 			return true;
 		else
 			return false;
