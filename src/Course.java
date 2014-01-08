@@ -9,7 +9,7 @@
 //
 //
 
-//What will happen now?
+//Nothing
 
 
 public class Course {
