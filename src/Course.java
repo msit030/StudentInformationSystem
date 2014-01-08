@@ -48,7 +48,7 @@ public class Course {
 	
 	
 	/** 
-	 * @author Omair
+	 * @author Omair good job :)
 	 * Method to check if the course is equal to given course using the Course ID
 	 **/
 	public boolean equals(Object o) {
