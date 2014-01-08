@@ -20,7 +20,7 @@ public class Student {
 	public String address;
 	public String bloodGroup;
 	public long phoneNumber;
-	public java.sql.Date dob;
+	public java.util.Date dob;
 	public int year;
 	public String eduBackground;
 	public String branch;
