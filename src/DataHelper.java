@@ -24,6 +24,9 @@ import java.util.List;
  * @author NIKHILA
  *
  */
+
+
+
 public class DataHelper {
 	
 	/**
@@ -33,6 +36,9 @@ public class DataHelper {
 	List<Professor> list_Professor=new ArrayList<Professor>(4);
 	List<Student> list_Student=new ArrayList<Student>(10);
 	List<String> list_Qstnpaper=new ArrayList<String>(4);
+	
+	
+	
 	/**
 	 * @ nikhila
 	 */
@@ -71,23 +77,60 @@ public class DataHelper {
 		s0.lastName="A2";s0.isRegistered=true;s0.phoneNumber=123456;s0.studentID="ST01";s0.password="SIS123";
 		
 		Student s1 = new Student();
-		s1.address="address1";s1.bloodGroup="bg1";s1.branch="CSE";s1.year=2013;s1.currentYear=1;
-		s1.dob=(Date) formatter.parse(testDate);s1.eduBackground="SSC";s1.firstName="A1";
-		s1.lastName="A2";s1.isRegistered=true;s1.phoneNumber=123456;s1.studentID="ST01";s1.password="SIS123";
+		s1.address="address2";s1.bloodGroup="bg1";s1.branch="ECE";s1.year=2012;s1.currentYear=2;
+		s1.dob=(Date) formatter.parse(testDate);s1.eduBackground="SSC";s1.firstName="B1";
+		s1.lastName="B2";s1.isRegistered=true;s1.phoneNumber=123456;s1.studentID="ST02";s1.password="SIS123";
 		
 		Student s2 = new Student();
-		s2.address="address1";s2.bloodGroup="bg1";s2.branch="CSE";s2.year=2013;s2.currentYear=1;
-		s2.dob=(Date) formatter.parse(testDate);s2.eduBackground="SSC";s2.firstName="A1";
-		s2.lastName="A2";s2.isRegistered=true;s2.phoneNumber=123456;s2.studentID="ST01";s2.password="SIS123";
+		s2.address="address3";s2.bloodGroup="bg1";s2.branch="CSE";s2.year=2013;s2.currentYear=1;
+		s2.dob=(Date) formatter.parse(testDate);s2.eduBackground="ICSE";s2.firstName="C1";
+		s2.lastName="C2";s2.isRegistered=true;s2.phoneNumber=123456;s2.studentID="ST03";s2.password="SIS123";
 		
 		Student s3 = new Student();
-		s3.address="address1";s3.bloodGroup="bg1";s3.branch="CSE";s3.year=2013;s3.currentYear=1;
-		s3.dob=(Date) formatter.parse(testDate);s3.eduBackground="SSC";s3.firstName="A1";
-		s3.lastName="A2";s3.isRegistered=true;s3.phoneNumber=123456;s3.studentID="ST01";s3.password="SIS123";
+		s3.address="address4";s3.bloodGroup="bg1";s3.branch="ECE";s3.year=2012;s3.currentYear=2;
+		s3.dob=(Date) formatter.parse(testDate);s3.eduBackground="CBSE";s3.firstName="D1";
+		s3.lastName="D2";s3.isRegistered=true;s3.phoneNumber=123456;s3.studentID="ST04";s3.password="SIS123";
 
+		Student s4 = new Student();
+		s4.address="address5";s4.bloodGroup="bg1";s4.branch="CSE";s4.year=2013;s4.currentYear=1;
+		s4.dob=(Date) formatter.parse(testDate);s4.eduBackground="SSC";s4.firstName="E1";
+		s4.lastName="E2";s4.isRegistered=true;s4.phoneNumber=123456;s4.studentID="ST05";s4.password="SIS123";
+		
+		Student s5 = new Student();
+		s5.address="address6";s5.bloodGroup="bg1";s5.branch="ECE";s5.year=2012;s5.currentYear=2;
+		s5.dob=(Date) formatter.parse(testDate);s5.eduBackground="ICSE";s5.firstName="F1";
+		s5.lastName="F2";s5.isRegistered=true;s5.phoneNumber=123456;s5.studentID="ST06";s5.password="SIS123";
+		
+		Student s6 = new Student();
+		s6.address="address7";s6.bloodGroup="bg1";s6.branch="CSE";s6.year=2013;s6.currentYear=1;
+		s6.dob=(Date) formatter.parse(testDate);s6.eduBackground="SSC";s6.firstName="G1";
+		s6.lastName="G2";s6.isRegistered=true;s6.phoneNumber=123456;s6.studentID="ST07";s6.password="SIS123";
+		
+		Student s7 = new Student();
+		s7.address="address8";s7.bloodGroup="bg1";s7.branch="ECE";s7.year=2012;s7.currentYear=2;
+		s7.dob=(Date) formatter.parse(testDate);s7.eduBackground="CBSE";s7.firstName="H1";
+		s7.lastName="H2";s7.isRegistered=true;s7.phoneNumber=123456;s7.studentID="ST08";s7.password="SIS123";
+		
+		Student s8 = new Student();
+		s8.address="address9";s8.bloodGroup="bg1";s8.branch="CSE";s8.year=2013;s8.currentYear=1;
+		s8.dob=(Date) formatter.parse(testDate);s8.eduBackground="SSC";s8.firstName="I1";
+		s8.lastName="I2";s8.isRegistered=true;s8.phoneNumber=123456;s8.studentID="ST09";s8.password="SIS123";
+		
+		Student s9 = new Student();
+		s9.address="address10";s9.bloodGroup="bg1";s9.branch="ECE";s9.year=2012;s9.currentYear=2;
+		s9.dob=(Date) formatter.parse(testDate);s9.eduBackground="ICSE";s9.firstName="J1";
+		s9.lastName="J2";s9.isRegistered=true;s9.phoneNumber=123456;s9.studentID="ST010";s9.password="SIS123";
+		
+		list_Student.add(s1);list_Student.add(s2);
+		list_Student.add(s3);list_Student.add(s4);
+		list_Student.add(s5);list_Student.add(s6);
+		list_Student.add(s7);list_Student.add(s8);
+		list_Student.add(s9);list_Student.add(s0);
 		
 		
 	}
+	
+	
 	/**
 	 * 
 	 * @nikhila
@@ -96,15 +139,57 @@ public class DataHelper {
 		return list_Course;
 	}
 	
-	public List<Student> viewAllStudentsByCourse(Course course) {
+	public List<String> viewAllStudentsByCourse(Course course) 
+	{
+		List<String> l=new ArrayList<String>(10);
+		if(course.courseID.equalsIgnoreCase("BCS101"))
+		{
+			l.add("ST01");
+			l.add("ST02");
+		}
+		else if(course.courseID.equalsIgnoreCase("BCS102"))
+		{
+			l.add("ST02");
+			l.add("ST03");
+			l.add("ST04");
+		}
+		else if(course.courseID.equalsIgnoreCase("BCS103"))
+		{
+			l.add("ST04");
+			l.add("ST05");
+			l.add("ST06");
+			l.add("ST07");
+		}
+		else
+		{
+			l.add("ST07");
+			l.add("ST08");
+			l.add("ST09");
+			
+		}
+		return l;
+	}
+	
+	
+	/**
+	 * 
+	 * @param course
+	 * @nikhila
+	 */
+	public String getQuestionPaper(Course course) {
+		
+		for(int i=0;i<list_Course.size();i++)
+		{
+			if(course.courseID.equalsIgnoreCase(list_Course.get(i).courseID))
+			{
+				return list_Course.get(i).questionPaper;
+			}
+		}
 		return null;
 	}
 	
-	public String getQuestionPaper(Course course) {
-		
-		
-		return null;
-	}
+	
+	
 	/**
 	 * @nikhila
 	 */
