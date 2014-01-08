@@ -43,6 +43,8 @@ public class DataHelper {
 		list_Course.add(new Course("OPERATING SYSTEMS","BCS103","GHI",4,7,4,"1.what are the types of os?2.explain threads?"));
 		list_Course.add(new Course("COMPUTER NETWORKS","BCS104","JKL",4,7,4,"1.what is a packet2.explain osi model"));
 	}
+	
+	
 	/**
 	 * @nikhila
 	 */
@@ -53,6 +55,8 @@ public class DataHelper {
 		list_Professor.add(new Professor("PROF3","SIS123"));
 		list_Professor.add(new Professor("PROF4","SIS123"));
 	}
+	
+	
 	/**
 	 * @throws ParseException 
 	 * @nikhila
@@ -81,6 +85,7 @@ public class DataHelper {
 		s3.dob=(Date) formatter.parse(testDate);s3.eduBackground="SSC";s3.firstName="A1";
 		s3.lastName="A2";s3.isRegistered=true;s3.phoneNumber=123456;s3.studentID="ST01";s3.password="SIS123";
 
+		
 		
 	}
 	/**
