@@ -17,6 +17,10 @@ public class Professor {
 	public String professorID;
 	String password;
 	
+	public String toString() {
+		return "Professor ID: "+professorID
+				+ "\n";
+	}
 	
 	/**
 	 * @nikhila

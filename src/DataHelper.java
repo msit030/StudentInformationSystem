@@ -1,4 +1,4 @@
-import java.sql.Date;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,7 +37,16 @@ public class DataHelper {
 	List<Student> list_Student=new ArrayList<Student>(10);
 	List<String> list_Qstnpaper=new ArrayList<String>(4);
 	
-	
+	DataHelper() {
+		load_Course();
+		load_Professor();
+		try {
+			load_Student();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * @ nikhila
@@ -139,32 +148,32 @@ public class DataHelper {
 		return list_Course;
 	}
 	
-	public List<String> viewAllStudentsByCourse(Course course) 
+	public List<Student> viewAllStudentsByCourse(Course course) 
 	{
-		List<String> l=new ArrayList<String>(10);
+		List<Student> l=new ArrayList<Student>(10);
 		if(course.courseID.equalsIgnoreCase("BCS101"))
 		{
-			l.add("ST01");
-			l.add("ST02");
+			l.add(list_Student.get(0));
+			l.add(list_Student.get(1));
 		}
 		else if(course.courseID.equalsIgnoreCase("BCS102"))
 		{
-			l.add("ST02");
-			l.add("ST03");
-			l.add("ST04");
+			l.add(list_Student.get(2));
+			l.add(list_Student.get(3));
+			l.add(list_Student.get(4));
 		}
 		else if(course.courseID.equalsIgnoreCase("BCS103"))
 		{
-			l.add("ST04");
-			l.add("ST05");
-			l.add("ST06");
-			l.add("ST07");
+			l.add(list_Student.get(4));
+			l.add(list_Student.get(5));
+			l.add(list_Student.get(6));
+			l.add(list_Student.get(7));
 		}
 		else
 		{
-			l.add("ST07");
-			l.add("ST08");
-			l.add("ST09");
+			l.add(list_Student.get(7));
+			l.add(list_Student.get(8));
+			l.add(list_Student.get(9));
 			
 		}
 		return l;
