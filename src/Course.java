@@ -9,7 +9,7 @@
 //
 //
 
-//Nothing
+//toString and equals in each method
 
 
 public class Course {
@@ -20,4 +20,42 @@ public class Course {
 	public int numOfClassesPerWeek;
 	public int numOfCredits;
 	public String questionPaper;
+	
+	Course() {
+		
+	}
+	
+	Course(String courseName, String courseID, String syllabus, int duration, int numOfClassesPerWeek, int numOfCredits, String questionPaper) {
+		this.courseName = courseName;
+		this.courseID = courseID;
+		this.syllabus = syllabus;
+		this.duration = duration;
+		this.numOfClassesPerWeek = numOfClassesPerWeek;
+		this.numOfCredits = numOfCredits;
+		this.questionPaper = questionPaper;
+	}
+	/** 
+	 * @author Omair
+	 **/
+	public String toString() {
+		return ""
+				+ "Course Name:"+courseName+"\n"
+				+ "Course ID  :"+courseID+"\n"
+				+ "Duration: "+duration+"\n"
+				+ "Classes per week:"+numOfClassesPerWeek+"\n"
+				+ "No of Credits   :"+numOfCredits+"\n";
+	}
+	
+	
+	/** 
+	 * @author Omair
+	 * Method to check if the course is equal to given course using the Course ID
+	 **/
+	public boolean equals(Object o) {
+		Course c = (Course) o;
+		if(c.courseID.equalsIgnoreCase(this.courseID))
+			return true;
+		else 
+			return false;
+	}
 }
