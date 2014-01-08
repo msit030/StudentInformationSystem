@@ -9,7 +9,7 @@ import java.util.HashMap;
 //  @ Date : 1/8/2014
 //  @ Authors : Meher, Nikhila, Omair, Harika 
 //
-//
+// this is an attendance manager.. 
 
 
 
