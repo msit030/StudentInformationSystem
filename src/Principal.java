@@ -27,4 +27,31 @@ public class Principal extends Professor {
 		
 	}
 
+	/**
+	 * @author Omair
+	 * 
+	 * To string method
+	 */
+	public String toString() {
+		return ""
+				+ "Principal ID: "+principalID
+				+ "\n"
+				+ "Name: "+name
+				+ "\n";
+	}
+	
+	/**
+	 * @author Omair
+	 * 
+	 * Equals Method
+	 */
+	public boolean equals(Object o) {
+		Principal p = (Principal) o;
+		if(p.principalID.equalsIgnoreCase(this.principalID)) {
+			return true;
+		}
+		else 
+			return false;
+	}
+	
 }
