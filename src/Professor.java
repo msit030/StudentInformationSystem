@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,6 +17,11 @@ import java.util.List;
 
 
 public class Professor {
+	DataHelper dh;
+	AttendanceManager am;
+	MarksManager mm;
+	String ques;
+	
 	public String professorID;
 	String password;
 	
@@ -34,7 +42,7 @@ public class Professor {
 	 * @author Meher
 	 * Equal method helps compare 2 professors on basis of thier ID
 	 */
-	public boolean eqauls(Object o){
+	public boolean equals(Object o){
 		Professor pr = (Professor) o;
 		
 		if(pr.professorID.equalsIgnoreCase(this.professorID))
@@ -46,47 +54,167 @@ public class Professor {
 	/**
 	 * @nikhila
 	 */
-	public Professor(){}
-	public Professor(String pid, String pswrd) 
-	{
+	public Professor(){ 
+		dh = new DataHelper();
+		am = new AttendanceManager();
+		mm = new MarksManager();
+	}
+	public Professor(String pid, String pswrd) {
 		professorID=pid;
 		password=pswrd;
+		dh = new DataHelper();
+		am = new AttendanceManager();
+		mm = new MarksManager();
 	}
-
+	
+	/**
+	 * @author Meher
+	 * view courses that Professor takes. 
+	 * @return
+	 */
 	public List<Course> viewProfCourses(){
-		return null;
+		List<Course> courses = new ArrayList<Course>();
+		DataHelper dh = new DataHelper();
+		HashMap<Course,Professor> map = dh.viewAllCoursesByProfessor();
+		for(Course c : map.keySet()){
+			if(map.get(c).equals(this)){
+				courses.add(c);
+			}
+		}
+		return courses;
 	}
-	
+	/**
+	 * @author Meher
+	 * Method to Update Course details from older Course.
+	 * @param course
+	 */
 	public void updateCourse(Course course){
-		
+		try{
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Update Course "+course.courseName);
+			
+			System.out.print("Existing Name: "+course.courseName + "\t ");
+			System.out.print("New Name (Enter -1 to skip this change):");
+			String temp = br.readLine();
+			if(!temp.equalsIgnoreCase("-1"))
+				course.courseName = temp;
+			
+			System.out.print("Existing Syllabus: "+course.syllabus + "\t ");
+			System.out.print("New Syllabus (Enter -1 to skip this change):");
+			temp = br.readLine();
+			if(!temp.equalsIgnoreCase("-1"))
+				course.syllabus = temp;
+			
+			System.out.print("Existing Duration: "+course.duration + "\t ");
+			System.out.print("New Duration (Enter -1 to skip this change):");
+			temp = br.readLine();
+			if(!temp.equalsIgnoreCase("-1"))
+				course.duration = Integer.parseInt(temp);
+			
+			System.out.print("Existing Classes per Week: "+course.numOfClassesPerWeek + "\t ");
+			System.out.print("New Classes per Week (Enter -1 to skip this change):");
+			temp = br.readLine();
+			if(!temp.equalsIgnoreCase("-1"))
+				course.numOfClassesPerWeek = Integer.parseInt(temp);
+			
+			System.out.print("Existing Number of Credits: "+course.numOfCredits + "\t ");
+			System.out.print("New Number of Credits (Enter -1 to skip this change):");
+			temp = br.readLine();
+			if(!temp.equalsIgnoreCase("-1"))
+				course.numOfCredits = Integer.parseInt(temp);
+			
+			System.out.println("Course Updated.!");
+			br.close();
+		}
+		catch(Exception e){
+			System.out.println("Error in Updating Course. Exiting..");
+		}
 	}
 	
+	/**
+	 * @author Meher
+	 * Method to print the attendance reports of students by course.
+	 */
 	public void viewCourseAttendanceReport(){
-		
+		AttendanceManager am = new AttendanceManager();
+		System.out.println("Printing Attendance By Course: ");
+		for(Course c :  am.dh.list_Course){
+			System.out.println("\nCourse: " + c.courseName);
+			HashMap<Student,Integer> disp = am.getAttendanceByCourse(c);
+			for(Student s : disp.keySet()){
+				System.out.println(s.studentID + "\t" + s.firstName + "\t" + "Attendance: "+disp.get(s) );
+			}
+		}
 	}
 	
+	/**
+	 * @author Meher
+	 * Method to return the list of students for course number 1
+	 * @return
+	 */
 	public List<Student> getStudentListByCourse(){
-		return null;
+		return dh.viewAllStudentsByCourse(dh.list_Course.get(0));
 	}
 	
+	/**
+	 * @author Meher
+	 * Method to update the Student Attendance for course 1
+	 * @param stdnts
+	 */
 	public void updateStudentAttendance(List<Student> stdnts){
-		
+		for(Student s : stdnts){
+			am.addAttendance(s, dh.list_Course.get(0));
+		}
+		System.out.println("Attendance for all students updated!");
 	}
 	
+	/**
+	 * @author Meher
+	 * Method to set and save the question paper for the course 1
+	 * @param qstnPaper
+	 */
 	public void setQuestionPaper(String qstnPaper){
-		
+		try{
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Start Typing the Questions : ");
+			ques = br.readLine();
+			System.out.println("Done Saving the Paper.");
+			System.out.println(ques);
+			br.close();
+		}
+		catch(Exception e){
+			System.out.println("Error in Question Paper Setting.");
+		}
 	}
 	
+	/**
+	 * @author Meher
+	 * Method returns the Question Paper for Course 1
+	 * @return
+	 */
 	public String viewQuestionPaper(){
-		return null;
+		return ques;
 	}
 	
-	public void giveMarks(java.util.HashMap<Student, Integer> students_marks){
-		
+	/**
+	 * @author Meher
+	 * Method to grade students and give them marks for course 1
+	 * @param students_marks
+	 */
+	public void giveMarks(HashMap<Student, Integer> students_marks){
+		for(Student s : students_marks.keySet()){
+			mm.addMarks(s, dh.list_Course.get(0), students_marks.get(s));
+		}
+		System.out.println("Updated Marks.");
 	}
 	
+	/**
+	 * @author Meher
+	 * Method to return the Student and Integer pairs for course 1
+	 * @return
+	 */
 	public HashMap<Student,Integer> viewMarks(){
-		return null;
+		return mm.getMarksByCourse(dh.list_Course.get(0));
 	}
 
 }
