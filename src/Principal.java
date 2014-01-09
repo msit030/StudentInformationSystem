@@ -4,6 +4,11 @@ import java.util.Map;
 import java.util.Scanner;
 
 
+/**
+ * Class representing principal
+ * @author NIKHILA, HARIKA
+ *
+ */
 public class Principal extends Professor {
 	
 	public String principalID;
@@ -11,7 +16,11 @@ public class Principal extends Professor {
 	String name;
 	
 	
-	
+	/**
+	 * Displays all the courses from Data Helper
+	 * @return list of courses
+	 * @author NIKHILA, HARIKA
+	 */
 	public List<Course> viewAllCourses()
 	{
 		Course s;
@@ -29,6 +38,10 @@ public class Principal extends Professor {
 		return dh.list_Course;
 	}
 	
+	/**
+	 * Add a staff member to list of professors retrieved from data helper
+	 * @author NIKHILA, HARIKA
+	 */
 	public void addStaff()
 	{
 		DataHelper dh=new DataHelper();
@@ -38,7 +51,8 @@ public class Principal extends Professor {
 		String pid=sc.nextLine();
 		Professor pr=new Professor();
 		pr.professorID=pid;
-		if(prof_list.contains(pr))
+		
+		if(prof_list.contains(pr))  // if the entered ID already exists
 		{
 			System.out.println("Staff ID already allocated");
 		}
@@ -51,6 +65,10 @@ public class Principal extends Professor {
 		
 	}
 	
+	/**
+	 * Removes a professor from the list of professors retrived from Data Helper
+	 * @author NIKHILA, HARIKA
+	 */
 	public void removeStaff()
 	{
 		DataHelper dh=new DataHelper();
@@ -73,7 +91,10 @@ public class Principal extends Professor {
 		}
 	}
 	
-	
+	/**
+	 * Assigns days and timings in each day for each course
+	 * @author NIKHILA, HARIKA
+	 */
 	public void scheduleCourseTimeTable()
 	{
 		DataHelper dh=new DataHelper();
@@ -82,7 +103,7 @@ public class Principal extends Professor {
 		String timing_slot=null;
 		Course s;
 		
-		
+		// display list of all courses available
 		List<Course> all_course_list = dh.list_Course;
 		System.out.println("All the Courses available : ");
 		System.out.println("Course ID"+"\t"+"Course Name"+"\t\t"+"Credits");
@@ -94,8 +115,7 @@ public class Principal extends Professor {
 		}
 		
 		
-		
-		
+		// add schedule to each course
 		System.out.println("\nEnter the Course ID : ");
 		Scanner sc=new Scanner(System.in);
 		String cid=sc.nextLine();
@@ -155,7 +175,9 @@ public class Principal extends Professor {
 	}
 	
 	
-	
+	/**
+	 * Show reports of attendance and marks(sorted by various categories)
+	 */
 	public void viewReports()
 	{
 		int choice=0;
@@ -170,7 +192,7 @@ public class Principal extends Professor {
 		{
 			choice=3;
 		}
-		if(choice == 1)
+		if(choice == 1)   // ATTENDANCE REPORTS
 		{
 			AttendanceManager am = new AttendanceManager();
 			System.out.println("\n Choose the type of Attendance Report : \n1.attendance by Student\n2.Attendance by Course \n3.Overall Attendance");
@@ -228,7 +250,7 @@ public class Principal extends Professor {
 			else
 				System.out.println("\n Invalid Choice !!!");
 		}
-		else if (choice == 2)
+		else if (choice == 2)  // MARKS REPORTS
 		{
 			MarksManager mm = new MarksManager();
 			System.out.println("\n Choose the type of Marks Report : \n1.Marks by Student\n2.Marks by Course \n3.Overall Marks");

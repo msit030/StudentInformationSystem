@@ -3,6 +3,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Main {
@@ -33,7 +34,7 @@ public class Main {
 					return;
 				}
 				System.out.println("Greetings, "+crrntStudnt.firstName);
-				
+				showStudentMenu(crrntStudnt);
 				
 			}
 			else if(uid.contains("PR") && pwd.contains("SI")){
@@ -53,13 +54,13 @@ public class Main {
 				System.out.println("\n\tWelcome to Principal Home Page");
 				Principal principal = new Principal();
 				System.out.println("Greetings, Princi");
-				
+				showPrincipalMenu(principal);
 			}
 			else if(uid.contains("Exam") && pwd.contains("SI")){
 				System.out.println("\n\tWelcome to Exam Branch Home Page");
 				ExamBranch exambranch = new ExamBranch();
 				System.out.println("Greetings, Exam Branch");
-				
+				showExamBranchMenu(exambranch);
 			}
 			else{
 				System.out.println("Wrong Credentials. Please Try Again.");
@@ -178,6 +179,213 @@ public class Main {
 		}
 		System.out.println("Thank You, Bye.");
 		
+	}
+
+	/**
+	 * Method to show functionality and call methods of Exam Branch 
+	 * @param exambranch
+	 * @authors NIKHILA, HARIKA
+	 */
+	private static void showExamBranchMenu(ExamBranch exambranch) 
+	{
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int ch = -1;
+		
+		do
+		{
+			System.out.println("\nChoose an option from below: ");
+			
+			System.out.println("1. Schedule exams");
+			System.out.println("2. Update Attendance");
+			System.out.println("3. Exit");
+			
+			try
+			{
+				sc = new Scanner(System.in);
+				ch = sc.nextInt();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Invalid input !!!");
+				continue;
+			}
+			
+			switch(ch)
+			{
+				case 1:
+				{
+					exambranch.scheduleExams();
+					break;
+				}
+				
+				case 2:
+				{
+					exambranch.updateAttendanceByExam();
+					break;
+				}
+								
+				case 3:
+				{
+					break;
+				}
+				
+				default:
+				{
+					System.out.println("Invalid input !!!");
+				}
+			}
+		}while(ch != 3);
+	}
+
+	/**
+	 * Method to show functionality and call methods of Principal
+	 * @param principal
+	 * @authors: NIKHILA, HARIKA
+	 */
+	private static void showPrincipalMenu(Principal principal) 
+	{
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int ch = -1;
+		
+		do
+		{
+			System.out.println("\nChoose an option from below: ");
+			
+			System.out.println("1. Add staff");
+			System.out.println("2. Remove staff");
+			System.out.println("3. View all courses");
+			System.out.println("4. Schedule courses");
+			System.out.println("5. View Reports");
+			System.out.println("6. Exit");
+			
+			try
+			{
+				sc = new Scanner(System.in);
+				ch = sc.nextInt();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Invalid input !!!");
+				continue;
+			}
+			
+			switch(ch)
+			{
+				case 1:
+				{
+					principal.addStaff();
+					break;
+				}
+				
+				case 2:
+				{
+					principal.removeStaff();
+					break;
+				}
+				
+				case 3:
+				{
+					principal.viewAllCourses();
+					break;
+				}
+				
+				case 4:
+				{
+					principal.scheduleCourseTimeTable();
+					break;
+				}
+				
+				case 5:
+				{
+					principal.viewReports();
+				}
+				
+				case 6:
+				{
+					break;
+				}
+				
+				default:
+				{
+					System.out.println("Invalid input !!!");
+				}
+			}
+		}while(ch != 6);
+	}
+
+	/**
+	 * Method to show menu and call methods of Student
+	 * @param s is the student object
+	 * @authors: NIKHILA, HARIKA
+	 */
+	private static void showStudentMenu(Student s) 
+	{
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int ch = -1;
+		
+		do
+		{
+			System.out.println("\nChoose an option from below: ");
+			if(s.isRegistered)
+				System.out.println("1. Update Profile");
+			else
+				System.out.println("1. Create Profile");
+			System.out.println("2. View all courses");
+			System.out.println("3. View Attendance");
+			System.out.println("4. View Results");
+			System.out.println("5. Exit");
+			
+			try
+			{
+				sc = new Scanner(System.in);
+				ch = sc.nextInt();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Invalid input !!!");
+				continue;
+			}
+			
+			switch(ch)
+			{
+				case 1:
+				{
+					s.updateProfile();
+					break;
+				}
+				
+				case 2:
+				{
+					s.viewCourses();
+					break;
+				}
+				
+				case 3:
+				{
+					s.viewAttendance();
+					break;
+				}
+				
+				case 4:
+				{
+					s.viewResults();
+					break;
+				}
+				
+				case 5:
+				{
+					break;
+				}
+				
+				default:
+				{
+					System.out.println("Invalid input !!!");
+				}
+			}
+		}while(ch != 5);
 	}
 
 	/**
