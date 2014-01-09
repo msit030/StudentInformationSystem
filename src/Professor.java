@@ -54,17 +54,10 @@ public class Professor {
 	/**
 	 * @nikhila
 	 */
-	public Professor(){ 
-		dh = new DataHelper();
-		am = new AttendanceManager();
-		mm = new MarksManager();
-	}
+	public Professor(){ }
 	public Professor(String pid, String pswrd) {
 		professorID=pid;
 		password=pswrd;
-		dh = new DataHelper();
-		am = new AttendanceManager();
-		mm = new MarksManager();
 	}
 	
 	/**
@@ -153,6 +146,7 @@ public class Professor {
 	 * @return
 	 */
 	public List<Student> getStudentListByCourse(){
+		dh = new DataHelper();
 		return dh.viewAllStudentsByCourse(dh.list_Course.get(0));
 	}
 	
@@ -162,6 +156,8 @@ public class Professor {
 	 * @param stdnts
 	 */
 	public void updateStudentAttendance(List<Student> stdnts){
+		dh = new DataHelper();
+		am = new AttendanceManager();
 		for(Student s : stdnts){
 			am.addAttendance(s, dh.list_Course.get(0));
 		}
@@ -202,6 +198,8 @@ public class Professor {
 	 * @param students_marks
 	 */
 	public void giveMarks(HashMap<Student, Integer> students_marks){
+		dh = new DataHelper();
+		mm = new MarksManager();
 		for(Student s : students_marks.keySet()){
 			mm.addMarks(s, dh.list_Course.get(0), students_marks.get(s));
 		}
@@ -214,6 +212,8 @@ public class Professor {
 	 * @return
 	 */
 	public HashMap<Student,Integer> viewMarks(){
+		dh = new DataHelper();
+		mm = new MarksManager();
 		return mm.getMarksByCourse(dh.list_Course.get(0));
 	}
 
