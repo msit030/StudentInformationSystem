@@ -42,7 +42,7 @@ public class Professor {
 	 * @author Meher
 	 * Equal method helps compare 2 professors on basis of thier ID
 	 */
-	public boolean eqauls(Object o){
+	public boolean equals(Object o){
 		Professor pr = (Professor) o;
 		
 		if(pr.professorID.equalsIgnoreCase(this.professorID))
@@ -77,7 +77,7 @@ public class Professor {
 		DataHelper dh = new DataHelper();
 		HashMap<Course,Professor> map = dh.viewAllCoursesByProfessor();
 		for(Course c : map.keySet()){
-			if(map.get(c).eqauls(this)){
+			if(map.get(c).equals(this)){
 				courses.add(c);
 			}
 		}
