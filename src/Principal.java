@@ -41,6 +41,14 @@ public class Principal extends Professor {
 	}
 	
 	/**
+	 * @author Meher
+	 * hash code for principal is nothing but hash code of principalID.
+	 */
+	public int hashCode(){
+		return principalID.hashCode();
+	}
+	
+	/**
 	 * @author Omair
 	 * 
 	 * Equals Method

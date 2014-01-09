@@ -23,6 +23,27 @@ public class Professor {
 	}
 	
 	/**
+	 * @author Meher
+	 * hash code for professor is nothing but hash code of professorID.
+	 */
+	public int hashCode(){
+		return professorID.hashCode();
+	}
+	
+	/**
+	 * @author Meher
+	 * Equal method helps compare 2 professors on basis of thier ID
+	 */
+	public boolean eqauls(Object o){
+		Professor pr = (Professor) o;
+		
+		if(pr.professorID.equalsIgnoreCase(this.professorID))
+			return true;
+		else
+			return false;
+	}
+	
+	/**
 	 * @nikhila
 	 */
 	public Professor(){}
