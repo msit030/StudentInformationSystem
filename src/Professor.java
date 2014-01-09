@@ -117,7 +117,7 @@ public class Professor {
 				course.numOfCredits = Integer.parseInt(temp);
 			
 			System.out.println("Course Updated.!");
-			br.close();
+			//br.close();
 		}
 		catch(Exception e){
 			System.out.println("Error in Updating Course. Exiting..");
@@ -176,7 +176,7 @@ public class Professor {
 			ques = br.readLine();
 			System.out.println("Done Saving the Paper.");
 			System.out.println(ques);
-			br.close();
+			//br.close();
 		}
 		catch(Exception e){
 			System.out.println("Error in Question Paper Setting.");
