@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,11 +10,12 @@ public class Principal extends Professor {
 	String password;
 	String name;
 	
-	DataHelper dh=new DataHelper();
+	
 	
 	public List<Course> viewAllCourses()
 	{
 		Course s;
+		DataHelper dh=new DataHelper();
 		List<Course> all_course_list = dh.list_Course;
 		System.out.println("All Courses  : ");
 		System.out.println("Course ID"+"\t"+"Course Name"+"\t\t"+"Credits");
@@ -31,6 +31,7 @@ public class Principal extends Professor {
 	
 	public void addStaff()
 	{
+		DataHelper dh=new DataHelper();
 		List<Professor> prof_list=dh.list_Professor;
 		System.out.println("\nEnter the Staff ID : ");
 		Scanner sc=new Scanner(System.in);
@@ -52,6 +53,7 @@ public class Principal extends Professor {
 	
 	public void removeStaff()
 	{
+		DataHelper dh=new DataHelper();
 		List<Professor> prof_list=dh.list_Professor;
 		System.out.println("\nList of staff ID already present :");
 		System.out.println(prof_list);
@@ -74,6 +76,7 @@ public class Principal extends Professor {
 	
 	public void scheduleCourseTimeTable()
 	{
+		DataHelper dh=new DataHelper();
 		HashMap<Course,HashMap<String,String>> week_schedule= new HashMap<Course,HashMap<String,String>>();
 		HashMap<String,String> course_schedule=new HashMap<String,String>();
 		String timing_slot=null;
@@ -156,6 +159,7 @@ public class Principal extends Professor {
 	public void viewReports()
 	{
 		int choice=0;
+		DataHelper dh=new DataHelper();
 		System.out.println("\nWhat type of reports you want to view ?\n1.Attendance \n2.Marks");
 		Scanner sc=new Scanner(System.in);
 		try
