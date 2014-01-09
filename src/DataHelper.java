@@ -3,6 +3,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 //
@@ -36,6 +37,7 @@ public class DataHelper {
 	List<Professor> list_Professor=new ArrayList<Professor>(4);
 	List<Student> list_Student=new ArrayList<Student>(10);
 	List<String> list_Qstnpaper=new ArrayList<String>(4);
+	HashMap<Course,Professor> map = new HashMap<Course,Professor>();
 	
 	DataHelper() {
 		load_Course();
@@ -205,6 +207,20 @@ public class DataHelper {
 	public List<Professor> viewAllProfessor()
 	{
 		return list_Professor;
+	}
+	
+	/**
+	 * @author Meher
+	 * method to map courses to professors.
+	 */
+	public HashMap<Course,Professor> viewAllCoursesByProfessor(){
+		
+		
+		map.put(list_Course.get(0), list_Professor.get(0));
+		map.put(list_Course.get(1), list_Professor.get(1));
+		map.put(list_Course.get(2), list_Professor.get(2));
+		map.put(list_Course.get(3), list_Professor.get(3));
+		return map;
 	}
 }
 
