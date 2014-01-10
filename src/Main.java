@@ -53,7 +53,7 @@ public class Main {
 			else if(uid.contains("Admin") && pwd.contains("SI")){
 				System.out.println("\n\tWelcome to Principal Home Page");
 				Principal principal = new Principal();
-				System.out.println("Greetings, Princi");
+				System.out.println("Greetings, Principal");
 				showPrincipalMenu(principal);
 			}
 			else if(uid.contains("Exam") && pwd.contains("SI")){
